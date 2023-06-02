@@ -28,7 +28,7 @@ In order to complete this project you will need an AWS account and a virtual ser
 
 - [Connecting to your EC2 Instance](https://www.youtube.com/watch?v=TxT6PNJts-s&list=PLtPuNR8I4TvkwU7Zu0l0G_uwtSUXLckvh&index=9)
 
-#### STEP 1 - Installing Apache and Updating the Firewall
+### STEP 1 - Installing Apache and Updating the Firewall
 
 <!-- Github Markdown -->
 
@@ -75,15 +75,23 @@ http://<Public-IP-Address>:80
 <!-- Code Blocks -->
 ```
 # install MySQL server
-$ sudo apt install mysql-server -y
+sudo apt install mysql-server -y
+
+
+#see the status of Mysql
+sudo systemctl status mysql
+
 
 # Log into the MySQL console as administrative database root user
-$ sudo mysql
+sudo mysql
+
 
 # Changing the password for the root user
 mysql> ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'Password.1';
 
+
 mysql> flush privileges;
+
 
 mysql> exit
 ```
@@ -98,7 +106,7 @@ mysql> exit
 * Start the interactive script by running:
 <!-- Code Blocks -->
 ```
-$ sudo mysql_secure_installation
+sudo mysql_secure_installation
 ```
 
 ![mysql secure](./images1/p15.JPG)
@@ -111,14 +119,14 @@ $ sudo mysql_secure_installation
 * Test that you can log into your MySQL console by running:
 <!-- Code Block -->
 ```
-$ sudo mysql -p
+sudo mysql -p
 Enter password:
 ```
 ![mysql -p](./images1/p16.JPG)
 
 - You will be requested to enter your password to log in.
 
-- To exist the MySQL console, type:
+- To exit the MySQL console, type:
 <!-- Code Block -->
 ```
 mysql> exit
@@ -130,10 +138,10 @@ PHP is the component of our setup that will process code to display dynamic cont
 
 <!-- Code Block -->
 ```
-$ sudo apt install php libapache2-mod-php php-mysql -y
+sudo apt install php libapache2-mod-php php-mysql -y
 
 # To confirm your php version, run
-$ php -v
+ php -v
 ```
 
 ![install php](./images1/p17.JPG)
@@ -151,19 +159,19 @@ Apache on Ubuntu has one server block enabled by default that is configured to s
 We wish to use a different directory for our project by creating a new directory named `projectlamp`
 <!-- Code Block -->
 ```
-$sudo mkdir /var/www/projectlamp
+sudo mkdir /var/www/projectlamp
 ```
 ![projectlamp](./images1/p19.JPG)
 
 * Assign ownership of the directory with your current system user
 <!-- Code Block -->
 ```
-$sudo chown -R $USER:$USER /var/www/projectlamp
+sudo chown -R $USER:$USER /var/www/projectlamp
 ```
 * Create and open a new configuration file in Apache's site-available directory using your prefered editior
 <!-- Code Block -->
 ```
-$sudo vi /etc/apache2/sites-available/projectslamp.conf
+sudo vi /etc/apache2/sites-available/projectslamp.conf
 
 <VirtualHost *:80>
     ServerName projectlamp
@@ -186,7 +194,7 @@ $sudo vi /etc/apache2/sites-available/projectslamp.conf
 * Use the a2ensite command to enable the new virtual host.
 <!-- Code Block -->
 ```
-$sudo a2ensite projectlamp
+sudo a2ensite projectlamp
 ```
 
 * You might want to disable the default wedsite that comes installed with Apache. This becomes necessary if you are not using the custom domain name, because in this case Apache's default configuration will overwrite your vitual host.
@@ -194,15 +202,15 @@ $sudo a2ensite projectlamp
 To disable Apache's default website type:
 <!-- Code Block -->
 ```
-$sudo a2dissite 000-default
+sudo a2dissite 000-default
 
 # Make sure your configuration file does not contain syntax errors, run
 
-$sudo apache2ctl configtest
+sudo apache2ctl configtest
 
 # reload the Apache server so that changes can be effected.
 
-$sudo systemctl reload apache2
+sudo systemctl reload apache2
 ```
 ![enable&disable](./images1/p23.JPG)
 
@@ -215,7 +223,7 @@ $sudo systemctl reload apache2
 * Run the commands below:
 <!-- Code Build -->
 ```
-$sudo echo 'Hello LAMP from hostname '$(curl -s http://169.254.169.254/latest/meta-data/public-hostname) 'With Public IP' $(curl -s http://169.254.169.254/latest/meta-data/public-ipv4) > /var/www/projectlamp/index.html
+sudo echo 'Hello LAMP from hostname '$(curl -s http://169.254.169.254/latest/meta-data/public-hostname) 'With Public IP' $(curl -s http://169.254.169.254/latest/meta-data/public-ipv4) > /var/www/projectlamp/index.html
 
 
 #Open website URL in your broswer
@@ -237,7 +245,7 @@ With the default DirectoryIndex settings on Apache, a file named index.html will
 - In case you want to change this behavior, you’ll need to edit the /etc/apache2/mods-enabled/dir.conf file and change the order in which the index.php file is listed   within the DirectoryIndex directive:
 <!-- Code Block -->
 ```
-$sudo vim /etc/apache2/mods-enabled/dir.conf
+sudo vim /etc/apache2/mods-enabled/dir.conf
 
 
 <IfModule mod_dir.c>
@@ -258,7 +266,7 @@ $sudo vim /etc/apache2/mods-enabled/dir.conf
 * You will need to reload Apache so that the chnges can be reflected
 <!--Code Block -->
 ```
-$sudo systemctl reload apache2
+sudo systemctl reload apache2
 ```
 ![reload-apache2](./images1/p31.JPG)
 
@@ -266,7 +274,7 @@ $sudo systemctl reload apache2
  Create a new file named index.php inside your custom web root folder:
 <!-- Code Block -->
 ```
-$sudo  vim /var/www/projectlamp/index.php
+sudo  vim /var/www/projectlamp/index.php
 
 
 #Paste and save the text below:
@@ -290,7 +298,7 @@ phpinfo();
 
 <!-- Code Block -->
 ```
-$sudo rm /var/www/projectlamp/index.php
+sudo rm /var/www/projectlamp/index.php
 ```
 
 
