@@ -79,7 +79,7 @@ sudo mysql_secure_installation
 ![insert](./images2/p8.PNG)
 
 
-Test that you can log into your NySQL console again
+Test that you can log into your MySQL console again
 ```
 sudo mysql -p
 Enter password:
@@ -90,7 +90,7 @@ mysql> exit
 ![insert](./images2/p9.PNG)
 
 
-### STEP INSTALLING PHP
+### STEP 3 - INSTALLING PHP
 
 Install the PHP fastCGI process manager and PHP-MySQL module.
 
@@ -116,7 +116,7 @@ sudo mkdir /var/www/projectLEMP
 
 ![insert p13.PNG](./images2/p13.PNG)
 
-Assign ownership of the directory with the $USER environment variable which will reference your courrent system user.
+Assign ownership of the directory with the $USER environment variable which will reference your current system user.
 
 ```
 sudo chown -R $USER:$USER /var/www/projectLEMP
@@ -125,7 +125,7 @@ sudo chown -R $USER:$USER /var/www/projectLEMP
 ![insert](./images2/p14.PNG)
 
 
-Open a new configuration file in Nginx's `sites-available` directory using nano command-line editior.
+Open a new configuration file in Nginx's `sites-available` directory using nano command-line editor.
 
 ```
 sudo nano /etc/nginx/sites-available/projectLEMP
@@ -133,7 +133,7 @@ sudo nano /etc/nginx/sites-available/projectLEMP
 
 ![insert](./images2/p15.PNG)
 
-Paste the following bare-bones configuratio:
+Paste the following bare-bones configuration:
 
 ```
 #/etc/nginx/sites-available/projectLEMP
@@ -171,7 +171,8 @@ sudo ln -s /etc/nginx/sites-available/projectLEMP /etc/nginx/sites-enabled/
 ```
 ![insert](./images2/p18.PNG)
 
-Test your configuration for synatx errors
+Test your configuration for syntax errors by typing:
+
 ```
 sudo nginx -t
 ```
