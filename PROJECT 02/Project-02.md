@@ -102,7 +102,7 @@ sudo apt install php-fpm php-mysql -y
 
 ![insert](./images2/p11.PNG)
 
-### CONFIGURING NGINX TO USE PHP PROCESSOR
+### STEP 4 - CONFIGURING NGINX TO USE PHP PROCESSOR
 
 When using the Nginx web server, we can create server blocks (similar to virtual hosts in Apache) to encapsulate configuration details and host more than one domain on a single server. In this PROJECT we will use projectLEMP as our domain name.
 
