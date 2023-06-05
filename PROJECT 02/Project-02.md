@@ -250,7 +250,7 @@ http://server_domain_or_IP/info.php
 ![insert](./images2/p26.PNG)
 
 
-### RETRIEVING DATA FROM MYSQL DATABASE WITH PHP
+### STEP 6 - RETRIEVING DATA FROM MYSQL DATABASE WITH PHP
 
 Connect to your MySQL console using the root account.
 
