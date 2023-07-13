@@ -42,6 +42,7 @@ sudo apt update && sudo apt upgarde -y
 ![insert](./images5/p4.PNG)
 
 ### **STEP 2**
+---
 
 **On MySQL-DB virtual machine install MySQL Server software**
 
@@ -66,6 +67,7 @@ sudo systemctl status mysql
 
 
 ### STEP 3
+----
 
 **Name the SECOND SERVER - MySQL-Client (this is for convenience)**
 
@@ -105,6 +107,7 @@ sudo apt install mysql-client -y
 
 
 ### STEP 4
+----
 
 By default, both of your MySQL-DB and MySQL-Client servers are located in the same local virtual network, so they can communicate to each other using local IP addresses.
 
@@ -126,7 +129,8 @@ ip addr show
 ![insert](./images5/p13.PNG)
 
 
-### STEP 5
+### STEP 5 
+----
 
 Before we configure MySQL server to allow connections from remote hosts, we need to create a user and database.
 
@@ -197,7 +201,8 @@ sudo vi /etc/mysql/mysql.conf.d/mysqld.cnf
 ![insert](./images5/p20.PNG)
 
 
-### STEP 6
+### STEP 6 
+----
 
 From MySQL-Client Linux Server connect remotely to MySQL-DB server Database Engine without using SSH. You must use the MySQL utility to perform this action
 
