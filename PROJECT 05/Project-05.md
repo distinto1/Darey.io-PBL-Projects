@@ -114,7 +114,7 @@ For extra security, do not allow all IP addresses to reach your ‘MySQL-DB serv
 
 So we will add a new role `MYSQL/AURORA` get the ip address of the MySQL-Client and input into the new role.
 
-**Run this command on the MySQL-Client Server** 
+**Run this command on the MySQL-Client Server to retrieve IP address** 
 
 ``````
 ip addr show
