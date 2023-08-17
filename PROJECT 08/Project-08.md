@@ -1,7 +1,8 @@
 # **LOAD BALANCER SOLUTION WITH APACHE**
 
-Prerequisites
-Before you begin with this project, Make sure that you have following servers installed and configured within Project-7:
+**_Prerequisites_**
+
+Before you begin with this project, Make sure that you have following servers installed and configured within Project 7:
 
 1. Two RHEL8 Web Servers
 2. One MySQL DB Server (based on Ubuntu 20.04)
@@ -11,15 +12,15 @@ Before you begin with this project, Make sure that you have following servers in
 
 ## **CONFIGURE APACHE AS A LOAD BALANCER**
 
-1. Create an Ubuntu Server 20.04 EC2 instance and name it `Project-8-apache-lb`, so your EC2 list will look like this:
+1; Create an Ubuntu Server 20.04 EC2 instance and name it `Project-8-apache-lb`, so your EC2 list will look like this:
 
 ![insert](./images8/p0.PNG)
 
-2. Open TCP port 80 on Project-8-apache-lb by creating an Inbound Rule in Security Group.
+2; Open TCP port 80 on Project-8-apache-lb by creating an Inbound Rule in Security Group.
 
 ![insert](./images8/p13.PNG)
 
-3. Install Apache Load Balancer on `Project-8-apache-lb` server and configure it to point traffic coming to LB to both Web Servers:
+3; Install Apache Load Balancer on `Project-8-apache-lb` server and configure it to point traffic coming to LB to both Web Servers:
 
 ```bash
 #Install apache2
@@ -90,7 +91,7 @@ sudo systemctl restart apache2
 
 `bytraffic` balancing method will distribute incoming load between your Web Servers according to current traffic load. We can control in which proportion the traffic must be distributed by `loadfactor` parameter.
 
-4. Verify that our configuration works – try to access your LB’s public IP address or Public DNS name from your browser:
+4; Verify that our configuration works – try to access your LB’s public IP address or Public DNS name from your browser:
 
 ```bash
 http://<Load-Balancer-Public-IP-Address-or-Public-DNS-Name>/index.php
@@ -156,7 +157,9 @@ You can try to curl your Web Servers from LB locally `curl http://Web1` or `curl
 
 ![insert](./images8/p26.PNG)
 
-**Targeted Architecture**
+Remember, this is only internal configuration and it is also local to your LB server, these names will neither be ‘resolvable’ from other servers internally nor from the Internet.
+
+## Targeted Architecture
 
 Now your setup looks like this:
 
