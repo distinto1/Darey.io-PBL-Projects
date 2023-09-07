@@ -8,7 +8,7 @@ In this project we are going to start automating part of our routine tasks with 
 
 In our project we are going to utilize Jenkins CI capabilities to make sure that every change made to the source code in GitHub will be automatically be updated to the Tooling Website.
 
-![insert](./images9/add_jenkins.png)
+![insert](./images9/jenkins%20architecture.jpg)
 
 ## INSTALL AND CONFIGURE JENKINS SERVER
 
