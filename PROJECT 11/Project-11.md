@@ -123,17 +123,11 @@ Confirm the key has been added with the command below, you should see the name o
 ```bash
 ssh-add -l
 ```
+
 ![insert](./images11/p21.PNG)
 
-Now, ssh into your Jenkins-Ansible server using ssh-agent
-
-```bash
-ssh -A ubuntu@public-ip
-
-```
-
 Also notice, that your Load Balancer user is ubuntu and user for RHEL-based servers is ec2-user.
-Update your inventory/dev.yml file with this snippet of code:
+Update your `inventory/dev.yml` file with this snippet of code:
 
 ```bash
 
